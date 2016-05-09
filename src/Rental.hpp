@@ -21,6 +21,9 @@ public:
     // movie rented
     const Video& getVideo() const;
 
+    // hours rented
+    int getHoursRented() const;
+
 private:
     Video movie;
     int days;

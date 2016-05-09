@@ -22,3 +22,9 @@ const Video& Rental::getVideo() const {
 
     return movie;
 }
+
+// hours rented
+int Rental::getHoursRented() const {
+
+    return days*24;
+}
