@@ -39,16 +39,16 @@ std::string Customer::statement() const {
 
     // rentals
     double totalAmount = 0;
-    int frequentRenterPoints = 0;
+    int stars = 0;
     for (std::vector<Rental>::const_iterator it = rentals.begin(); it != rentals.end(); ++it) {
 
-        // every rental is a rental point
-        ++frequentRenterPoints;
+        // every rental is a star
+        ++stars;
 
         // new releases rented for more then one day gives a bonus rental point
         if (it->getVideo().getCode() == Video::NEW_RELEASE &&
             it->getDaysRented() > 1 )
-            ++frequentRenterPoints;
+            ++stars;
 
         // title of rental
         result += "\t";
@@ -91,12 +91,12 @@ std::string Customer::statement() const {
     result += out_str_stream.str();
     result += "\n";
 
-    // frequent renter points earned
+    // stars points earned
     result += "You earned: ";
     std::ostringstream out_str_stream2;
-    out_str_stream2 << frequentRenterPoints;
+    out_str_stream2 << stars;
     result += out_str_stream2.str();
-    result += " frequent renter points\n";
+    result += " stars\n";
 
     return result;
 }
